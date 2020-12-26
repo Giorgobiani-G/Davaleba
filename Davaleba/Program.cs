@@ -157,6 +157,59 @@ namespace Davaleba
         }
 
         //4
+        public static bool IsProperly(String exp)
+        {
+
+             
+            bool balanced = true;
+            int count = 0;
+            char[] ch = exp.ToCharArray();
+            List<string> st = new List<string>();
+
+
+            for (int i = 0; i < ch.Length; i++)
+            {
+                if (ch[i] == '(' || ch[i] == ')')
+                {
+                    st.Add(ch[i].ToString());
+                }
+            }
+
+
+            
+            for (int i = 0; i < st.Count; i++)
+            {
+                if (st[i].Equals("("))
+                {
+                    count++;
+                }
+                else
+                {
+
+                    // It is a closing parenthesis  
+                    count--;
+                }
+                if (count < 0)
+                {
+
+                     
+                    balanced = false;
+                    break;
+                }
+            }
+
+          
+            if (count != 0)
+            {
+                balanced = false;
+            }
+            Console.WriteLine(balanced);
+            return balanced;
+        }
+
+
+
+
 
     }
 
@@ -168,8 +221,10 @@ namespace Davaleba
             //Davaleba.Ispalindrome("nh");
             //Davaleba.MinSplit(101);
 
-            int[] arr = {5, 3,6,7 };
-            Davaleba.NotContains(arr);
+            //int[] arr = {5, 3,6,7 };
+            //Davaleba.NotContains(arr);
+            Davaleba.IsProperly("(fed))");
+            //Davaleba.IsProperly("()fjekd()");
             Console.ReadLine();
         }
     }
