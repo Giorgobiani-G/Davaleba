@@ -207,11 +207,33 @@ namespace Davaleba
             return balanced;
         }
 
+        //5
 
+        public static int CountVariantsUtil(int n)
+        {
+            int[] res = new int[n];
+            res[0] = 1;
+            res[1] = 1;
+            for (int i = 2; i < n; i++)
+            {
+                res[i] = 0;
+                for (int j = 1; j <= 2 && j <= i; j++)
+                    res[i] += res[i - j];
+            }
 
+            return res[n - 1];
+        }
 
+        public static int CountVariants(int stearsCount)
+        {
+            return CountVariantsUtil(stearsCount + 1);
+        }
 
     }
+
+
+
+    
 
 
         class Program
@@ -223,7 +245,9 @@ namespace Davaleba
 
             //int[] arr = {5, 3,6,7 };
             //Davaleba.NotContains(arr);
-            Davaleba.IsProperly("(fed))");
+            //Davaleba.IsProperly("(fed))");
+           Console.WriteLine(Davaleba.CountVariants(5));
+            
             //Davaleba.IsProperly("()fjekd()");
             Console.ReadLine();
         }
