@@ -229,6 +229,72 @@ namespace Davaleba
             return CountVariantsUtil(stearsCount + 1);
         }
 
+
+
+        //8
+
+        public static double ExchangeRate(string from , string to)
+        {
+            double rate=0;
+
+            Dictionary<string, double> keyValuePairs = new Dictionary<string, double>
+            {
+                { "AED", 0.89028 },
+                { "AMD", 0.0062505 },
+                { "AUD", 2.4868 },
+                { "AZN", 1.9248 },
+                { "BGN", 2.035 },
+                { "BRL", 0.6268 },
+                { "BYN", 1.2648 },
+                { "CAD", 2.5417 },
+                { "CHF", 3.6749 },
+                { "CNY", 0.50031 },
+                { "CZK", 0.15194 },
+                { "DKK", 0.53592 },
+                { "EGP", 0.20827 },
+                { "EUR", 3.987 },
+                { "GBP", 4.434 },
+                { "HKD", 0.42172 },
+                { "HUF", 0.010992 },
+                { "ILS", 1.01581 },
+                { "INR", 0.044459 },
+                { "IRR", 0.00007785 },
+                { "ISK", 0.025552 },
+                { "JPY", 0.031615 },
+                { "KGS", 0.038641 },
+                { "KRW", 0.0029695 },
+                { "KWD", 10.7069 },
+                { "KZT", 0.007796 },
+                { "MDL", 0.18953 },
+                { "NOK", 0.37899 },
+                { "NZD", 2.3272 },
+                { "PLN", 0.8849 },
+                { "QAR", 0.88704 },
+                { "RON", 0.81778 },
+                { "RSD", 0.033863 },
+                { "RUB", 0.044255 },
+                { "SEK", 0.39546 },
+                { "SGD", 2.4593 },
+                { "TJS", 0.28937 },
+                { "TMT", 0.93426 },
+                { "TRY", 0.4333 },
+                { "UAH", 0.11528 },
+                { "USD", 3.2699 },
+                { "UZS", 0.0003122 },
+                { "ZAR", 0.22376 },
+
+            };
+
+            
+            double fr = keyValuePairs[from];
+            double toconvert = keyValuePairs[to];
+            rate = fr / toconvert;
+
+            Console.WriteLine(rate);
+            return rate;
+
+        }
+
     }
 
 
@@ -246,7 +312,8 @@ namespace Davaleba
             //int[] arr = {5, 3,6,7 };
             //Davaleba.NotContains(arr);
             //Davaleba.IsProperly("(fed))");
-           Console.WriteLine(Davaleba.CountVariants(5));
+           //Console.WriteLine(Davaleba.CountVariantsUtil(5));
+            Davaleba.ExchangeRate("USD", "EUR");
             
             //Davaleba.IsProperly("()fjekd()");
             Console.ReadLine();
